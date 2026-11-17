@@ -1,3 +1,34 @@
+# cordova-plugin-qrscanner-37
+
+Cordova iOS 8+ fork of [v1934/cordova-plugin-qrscanner-11](https://github.com/v1934/cordova-plugin-qrscanner-11).
+
+## Install from a local checkout
+
+```sh
+cordova plugin add ./cordova-plugin-qrscanner-37
+cordova platform add ios@8
+```
+
+Once this directory is pushed to your own repository, use its Git URL with
+`cordova plugin add`. The npm name is reserved here as package identity; this
+fork has not been published to npm.
+
+## iOS 8 installation changes
+
+- Requires cordova-ios 8 or newer, which supplies Swift support itself.
+- Removes cordova-plugin-add-swift-support and its app-name-based Xcode hooks.
+- Ships the native JavaScript adapter; no legacy Gulp build is needed for iOS.
+- Updates QRScanner.swift for Cordova 8 command status enums, WKWebView access,
+  scene orientation, and safe QR result/callback handling.
+- Verified Debug simulator build on Cordova iOS 8.0.0 with Xcode 26.5:
+  `cordova build ios --debug --emulator --target="iPhone-17-Pro, 26.5"`.
+  Camera scanning still needs validation on a physical device.
+
+The historical browser/library build still uses the upstream legacy toolchain.
+The changes in this fork target native iOS installation.
+
+## Upstream documentation
+
 [![Build Status](https://travis-ci.org/bitpay/cordova-plugin-qrscanner.svg?branch=master)](https://travis-ci.org/bitpay/cordova-plugin-qrscanner) [![npm](https://img.shields.io/npm/v/cordova-plugin-qrscanner.svg)](https://www.npmjs.com/package/cordova-plugin-qrscanner) [![npm](https://img.shields.io/npm/dm/cordova-plugin-qrscanner.svg)](https://www.npmjs.com/package/cordova-plugin-qrscanner)
 [![Dependency Status](https://david-dm.org/bitpay/cordova-plugin-qrscanner.svg)](https://david-dm.org/bitpay/cordova-plugin-qrscanner)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
@@ -30,7 +61,7 @@ QRScanner's native camera preview is rendered behind the Cordova app's webview, 
 ## Get Started
 
 ```bash
-cordova plugin add cordova-plugin-qrscanner-11
+cordova plugin add cordova-plugin-qrscanner-37
 ```
 
 Simply adding this plugin to the Cordova project will make the `window.QRScanner` global object available once the `deviceready` event propagates.
